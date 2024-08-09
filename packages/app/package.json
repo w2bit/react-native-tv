@@ -1,0 +1,32 @@
+{
+    "name": "@react-native-tv/app",
+    "version": "0.0.0",
+    "private": true,
+    "main": "src",
+    "scripts": {
+      "lint": "eslint .",
+      "lint:fix": "yarn lint --fix",
+      "test": "jest --passWithNoTests",
+      "test:watch": "yarn jest --watch",
+      "typecheck": "tsc"
+    },
+    "dependencies": {
+      "@babel/plugin-syntax-jsx": "^7.22.5",
+      "@babel/preset-react": "^7.22.5",
+      "@shopify/flash-list": "^1.6.1",
+      "abortcontroller-polyfill": "*",
+      "axios": "^1.5.0",
+      "fastestsmallesttextencoderdecoder": "*",
+      "lodash": "^4.17.21",
+      "react": "*",
+      "react-native": "*",
+      "react-native-dropdown-picker": "^5.4.6",
+      "react-native-screens": "^2.10.1",
+      "web-streams-polyfill": "*",
+      "xmldom": "*"
+    },
+    "peerDependencies": {
+      "react": "*",
+      "react-native": "*"
+    }
+  }

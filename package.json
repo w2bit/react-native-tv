@@ -1,0 +1,53 @@
+{
+  "name": "react-native-tv",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "nohoist": [
+    "**/react",
+    "**/react-dom",
+    "**/react-native",
+    "**/react-native/**",
+    "**/react-native-web"
+  ],
+  "scripts": {
+    "reset": "find . -type dir -name node_modules | xargs rm -rf && rm -rf yarn.lock",
+    "android:metro": "npm workspace @react-native-tv/mobile start",
+    "android:start": "npm workspace @react-native-tv/mobile android",
+    "android:studio": "npm workspace @react-native-tv/mobile studio",
+    "ios:metro": "npm workspace @react-native-tv/mobile start",
+    "ios:start": "npm workspace @react-native-tv/mobile ios",
+    "ios:xcode": "npm workspace @react-native-tv/mobile xcode",
+    "ios:pods": "npm workspace @react-native-tv/mobile pods",
+    "web:start": "NODE_OPTIONS=--openssl-legacy-provider yarn workspace @react-native-tv/web start",
+    "web:build": "NODE_OPTIONS=--openssl-legacy-provider yarn workspace @react-native-tv/web build",
+    "lint": "ultra -r lint",
+    "lint:fix": "ultra -r lint:fix",
+    "test": "ultra -r test",
+    "typecheck": "ultra -r typecheck"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-syntax-jsx": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@types/luxon": "^2.3.2",
+    "@types/react-native": "^0.63.17",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "esbuild": "0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react-native": "^4.0.0",
+    "lerna": "^7.1.5",
+    "lint-staged": "^12.3.7",
+    "nx": "16.7.4",
+    "nx-cloud": "latest",
+    "prettier": "^2.6.0",
+    "prettier-eslint": "^13.0.0",
+    "typescript": "^4.7.4"
+  }
+}
