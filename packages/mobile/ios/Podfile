@@ -1,0 +1,34 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '12.4'
+
+target 'ReactNativeTvApp' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => false, # Desative Hermes para evitar possíveis problemas
+    :fabric_enabled => false, # Se você não está usando Fabric, desative
+    :flipper_configuration => FlipperConfiguration.disabled, # Desative o Flipper para evitar problemas
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  target 'ReactNativeTvAppTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  post_install do |installer|
+    react_native_post_install(installer)
+    # Adicione o workaround para Apple Silicon se necessário
+    installer.aggregate_targets.each do |aggregate_target|
+      aggregate_target.user_project.native_targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['LIBRARY_SEARCH_PATHS'] = ['$(SDKROOT)/usr/lib/swift', '$(inherited)']
+        end
+      end
+      aggregate_target.user_project.save
+    end
+  end
+end
