@@ -1,9 +1,4 @@
-/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- *
- * @format
- */
+const path = require('path');
 
 module.exports = {
   transformer: {
@@ -14,4 +9,15 @@ module.exports = {
       },
     }),
   },
+  resolver: {
+    extraNodeModules: {
+      '@react-native-tv/app': path.resolve(__dirname, '../app/src'),
+      // Inclua o caminho do node_modules raiz
+      // 'node_modules': path.resolve(__dirname, '../../node_modules'),
+    },
+  },
+  watchFolders: [
+    path.resolve(__dirname, '../app'),
+    path.resolve(__dirname, '../../node_modules'), // Adicione esta linha
+  ],
 };
