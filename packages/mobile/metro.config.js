@@ -5,7 +5,7 @@ module.exports = {
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: true,
+        inlineRequires: false,
       },
     }),
   },
@@ -14,7 +14,7 @@ module.exports = {
       '@react-native-tv/app': path.resolve(__dirname, '../app/src'),
       // Inclua o caminho do node_modules raiz
       // 'node_modules': path.resolve(__dirname, '../../node_modules'),
-    },
+    }
   },
   watchFolders: [
     path.resolve(__dirname, '../app'),
